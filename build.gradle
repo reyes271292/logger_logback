@@ -1,0 +1,25 @@
+subprojects{
+  apply plugin:'groovy'
+
+  repositories{
+    jcenter()
+  }
+
+  dependencies{
+  	compile 'org.codehaus.groovy:groovy-all:2.4.4'
+    compile 'ch.qos.logback:logback-classic:1.1.6'
+  }  
+  
+}
+
+project(":webserver"){
+  apply plugin: 'war'
+  apply plugin: 'jetty'
+  
+  dependencies{
+    testCompile 'org.eclipse.jetty.aggregate:jetty-all-server:8.1.19.v20160209'
+
+  }
+  httpPort = 1234
+  
+}
